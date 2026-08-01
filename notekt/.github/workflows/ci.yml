@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install Kotlin compiler
+        run: |
+          curl -sL https://github.com/JetBrains/kotlin/releases/download/v2.0.21/kotlin-compiler-2.0.21.zip -o kotlinc.zip
+          unzip -q kotlinc.zip
+          echo "$PWD/kotlinc/bin" >> "$GITHUB_PATH"
+
+      - name: Compile
+        run: kotlinc src test -d build
+
+      - name: Run tests
+        run: kotlin -cp build TestRunnerKt

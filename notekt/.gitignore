@@ -1,0 +1,5 @@
+/build/
+/kotlinc/
+kotlinc.zip
+/data/*.tsv
+.DS_Store

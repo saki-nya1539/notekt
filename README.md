@@ -1,6 +1,6 @@
-# NoteKt 📝
+# NoteKt
 
-コマンドラインで動く、シンプルなメモ管理CLI。「15の言語で15個のアプリを作る」ポートフォリオプロジェクトの10本目（Kotlin編）。
+コマンドラインで動く、シンプルなメモ管理CLI。
 
 ![CI](https://github.com/saki-nya1539/notekt/actions/workflows/ci.yml/badge.svg)
 
